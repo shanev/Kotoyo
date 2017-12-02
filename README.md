@@ -4,7 +4,7 @@ Kotoyo is a fast, parallel image downloader for the Bing search engine, built on
 
 ## Usage
 
-Get an API key: [https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-image-search-api]
+Get an API key: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-image-search-api
 
 ```
 git clone https://github.com/shanev/Kotoyo
