@@ -1,6 +1,6 @@
 # Kotoyo
 
-Kotoyo is a Swift command line tool for downloading images from Bing Image Search. It's useful for getting training data for machine learning tasks like convoluted neural networks.
+Kotoyo is a (Swift)[https://swift.org/download/#releases] command line tool for downloading images from Bing Image Search. It's useful for getting training data for machine learning tasks like convoluted neural networks.
 
 ## Usage
 
