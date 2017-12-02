@@ -13,7 +13,7 @@ public final class Kotoyo {
 
   public init(arguments: [String] = CommandLine.arguments) {
     guard CommandLine.argc > 2 else {
-      fatalError("Incorrect arguments. Usage: [API_KEY] [QUERY] [DOWNLOAD_PATH]")
+      fatalError("Incorrect arguments. Usage: API_KEY QUERY [DOWNLOAD_PATH]")
     }
 
     self.arguments = arguments
