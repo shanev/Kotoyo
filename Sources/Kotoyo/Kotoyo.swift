@@ -25,8 +25,8 @@ public final class Kotoyo {
     let path = (CommandLine.argc > 3 ? CommandLine.arguments[3] : "./images")
     let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
-    let totalPicCount = 150
-    let pageCount = 50
+    let totalPics = 150
+    let picsPerPage = 50
     let mkt = "en-US"
     let imageType = "photo"
     let size = "medium"
@@ -34,9 +34,18 @@ public final class Kotoyo {
     let folderName = String(query.characters.map { $0 == " " ? "_" : $0 })
     let downloadPath = "\(path)/\(folderName)/"
     let downloader = Downloader(apiKey: apiKey, downloadPath: downloadPath)
+    let numPages = totalPics / picsPerPage
 
-    (0 ..< totalPicCount / pageCount)
-      .map { URL(string: "\(endPointUrl)?q=\(encodedQuery)&count=\(pageCount)&offset=\($0 * pageCount)&mkt=\(mkt)&imageType=\(imageType)&size=\(size)")! }
+    (0 ..< numPages)
+      .map { URL(string: """
+        \(endPointUrl)?
+        q=\(encodedQuery)&
+        count=\(picsPerPage)&
+        offset=\($0 * picsPerPage)&
+        mkt=\(mkt)&
+        imageType=\(imageType)&
+        size=\(size)
+        """)!}
       .map { downloader.fetchImageUrlsTask(forQueryUrl: $0) }
       .forEach { $0.resume() }
 
