@@ -12,6 +12,20 @@ cd Kotoyo && swift build
 .build/debug/Kotoyo API_KEY QUERY [DOWNLOAD_PATH]
 ```
 
+A folder will be created for each query, so if you search for 'leopard' and 'snow leopard', you'll have the directory structure:
+
+```
+images\
+   leopard\
+     image_001.jpg
+     image_002.jpg
+...
+   snow_leopard\
+     image_001.jpg
+     image_002.jpg
+...
+```
+
 ## Installing command line tool
 
 ```
