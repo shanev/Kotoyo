@@ -19,11 +19,11 @@ images\
    leopard\
      image_001.jpg
      image_002.jpg
-...
+     ...
    snow_leopard\
      image_001.jpg
      image_002.jpg
-...
+     ...
 ```
 
 ## Installing command line tool
