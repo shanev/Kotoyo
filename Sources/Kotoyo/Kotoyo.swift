@@ -13,7 +13,7 @@ public final class Kotoyo {
 
   public init(arguments: [String] = CommandLine.arguments) {
     guard CommandLine.argc > 2 else {
-      fatalError("Incorrect arguments. Usage: [API_KEY] [QUERY]")
+      fatalError("Incorrect arguments. Usage: [API_KEY] [QUERY] [DOWNLOAD_PATH]")
     }
 
     self.arguments = arguments
@@ -22,6 +22,7 @@ public final class Kotoyo {
   public func run() throws {
     let apiKey = CommandLine.arguments[1]
     let query = CommandLine.arguments[2]
+    let path = (CommandLine.argc > 3 ? CommandLine.arguments[3] : "./images")
     let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
     let totalPicCount = 150
@@ -31,7 +32,7 @@ public final class Kotoyo {
     let size = "medium"
 
     let folderName = String(query.characters.map { $0 == " " ? "_" : $0 })
-    let downloadPath = "./images/\(folderName)/"
+    let downloadPath = "\(path)/\(folderName)/"
     let downloader = Downloader(apiKey: apiKey, downloadPath: downloadPath)
 
     (0 ..< totalPicCount / pageCount)
