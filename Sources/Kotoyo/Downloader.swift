@@ -80,7 +80,7 @@ private extension Downloader {
       } catch (let error) {
         print(error)
       }
-      }.resume()
+    }.resume()
   }
 
   func urlSessionConfig() -> URLSessionConfiguration {
