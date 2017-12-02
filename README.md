@@ -1,6 +1,6 @@
 # Kotoyo
 
-Kotoyo is a fast, parallel image downloader for the Bing search engine, built on Microsoft's Cognitive Services API. It's useful for getting training data for machine learning tasks that use convoluted neural networks.
+Kotoyo is a Swift command line tool for downloading images from Bing Image Search. It's useful for getting training data for machine learning tasks like convoluted neural networks.
 
 ## Usage
 
