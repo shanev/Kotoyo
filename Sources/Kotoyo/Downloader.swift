@@ -1,6 +1,6 @@
 //
 //  Downloader.swift
-//  GoogleDownloader
+//  Kotoyo
 //
 //  Created by Shane Vitarana on 11/9/17.
 //  Copyright © 2017 Shane Vitarana. All rights reserved.
