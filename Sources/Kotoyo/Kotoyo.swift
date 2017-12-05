@@ -31,13 +31,13 @@ public final class Kotoyo {
     let imageType = "photo"
     let size = "medium"
 
-    let folderName = String(query.characters.map { $0 == " " ? "_" : $0 })
+    let folderName = query.replacingOccurrences(of: " ", with: "_")
     let downloadPath = "\(path)/\(folderName)/"
     let downloader = Downloader(apiKey: apiKey, downloadPath: downloadPath)
     let numPages = totalPics / picsPerPage
 
     (0 ..< numPages)
-      .map { URL(string: """
+      .flatMap { URL(string: """
         \(endPointUrl)?
         q=\(encodedQuery)&
         count=\(picsPerPage)&
@@ -45,7 +45,7 @@ public final class Kotoyo {
         mkt=\(mkt)&
         imageType=\(imageType)&
         size=\(size)
-        """)!}
+        """.replacingOccurrences(of: "\n", with: ""))}
       .map { downloader.fetchImageUrlsTask(forQueryUrl: $0) }
       .forEach { $0.resume() }
 
