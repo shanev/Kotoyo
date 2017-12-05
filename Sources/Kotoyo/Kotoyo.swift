@@ -31,7 +31,7 @@ public final class Kotoyo {
     let imageType = "photo"
     let size = "medium"
 
-    let folderName = String(query.characters.map { $0 == " " ? "_" : $0 })
+    let folderName = String(query.map { $0 == " " ? "_" : $0 })
     let downloadPath = "\(path)/\(folderName)/"
     let downloader = Downloader(apiKey: apiKey, downloadPath: downloadPath)
     let numPages = totalPics / picsPerPage
