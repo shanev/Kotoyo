@@ -30,6 +30,6 @@ images\
 
 ```
 swift build -c release -Xswiftc -static-stdlib
-cp -f ./build/release/Kotoyo /usr/local/bin/kotoyo
+cp -f .build/release/Kotoyo /usr/local/bin/kotoyo
 ```
 
