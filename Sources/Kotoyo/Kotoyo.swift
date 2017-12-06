@@ -37,7 +37,7 @@ public final class Kotoyo {
     let numPages = totalPics / picsPerPage
 
     (0 ..< numPages)
-      .map { URL(string: "\(endPointUrl)?q=\(encodedQuery)&count=\(picsPerPage)&offset=\($0 * picsPerPage)&mkt=\(mkt)&imageType=\(imageType)&size=\(size)")! }
+      .flatMap { URL(string: "\(endPointUrl)?q=\(encodedQuery)&count=\(picsPerPage)&offset=\($0 * picsPerPage)&mkt=\(mkt)&imageType=\(imageType)&size=\(size)") }
       .map { downloader.fetchImageUrlsTask(forQueryUrl: $0) }
       .forEach { $0.resume() }
 
