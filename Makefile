@@ -1,5 +1,7 @@
 %.swift:
 	swift build
+release:
+	swift build -c release -Xswiftc -static-stdlib
 resolve:
 	swift package resolve
 run: %.swift
